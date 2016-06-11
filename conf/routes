@@ -3,7 +3,49 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                       @controllers.Application.index()
+
+#Clientes
+GET    /clientes                @controllers.ClientesController.lista()
+GET    /clientes/novo           @controllers.ClientesController.novo()
+POST   /clientes/salvar         @controllers.ClientesController.salvar()
+GET    /clientes/formulario/:id @controllers.ClientesController.formulario(id:Long)
+GET    /clientes/remover/:id    @controllers.ClientesController.remover(id:Long)
+
+#Endereços
+GET    /enderecos                @controllers.EnderecosController.lista()
+GET    /enderecos/novo           @controllers.EnderecosController.novo()
+POST   /enderecos/salvar         @controllers.EnderecosController.salvar()
+GET    /enderecos/formulario/:id @controllers.EnderecosController.formulario(id:Long)
+GET    /enderecos/remover/:id    @controllers.EnderecosController.remover(id:Long)
+
+#Pedidos
+GET    /pedidos                @controllers.PedidosController.lista()
+GET    /pedidos/novo           @controllers.PedidosController.novo()
+POST   /pedidos/salvar         @controllers.PedidosController.salvar()
+GET    /pedidos/formulario/:id @controllers.PedidosController.formulario(id:Long)
+GET    /pedidos/remover/:id    @controllers.PedidosController.remover(id:Long)
+
+#Produtos
+GET    /produtos                @controllers.ProdutosController.lista()
+GET    /produtos/novo           @controllers.ProdutosController.novo()
+POST   /produtos/salvar         @controllers.ProdutosController.salvar()
+GET    /produtos/formulario/:id @controllers.ProdutosController.formulario(id:Long)
+GET    /produtos/remover/:id    @controllers.ProdutosController.remover(id:Long)
+
+#Pagamentos
+GET    /pagamentos                @controllers.PagamentosController.lista()
+GET    /pagamentos/novo           @controllers.PagamentosController.novo()
+POST   /pagamentos/salvar         @controllers.PagamentosController.salvar()
+GET    /pagamentos/formulario/:id @controllers.PagamentosController.formulario(id:Long)
+GET    /pagamentos/remover/:id    @controllers.PagamentosController.remover(id:Long)
+
+#Telefones
+GET    /telefones                @controllers.TelefonesController.lista()
+GET    /telefones/novo           @controllers.TelefonesController.novo()
+POST   /telefones/salvar         @controllers.TelefonesController.salvar()
+GET    /telefones/formulario/:id @controllers.TelefonesController.formulario(id:Long)
+GET    /telefones/remover/:id    @controllers.TelefonesController.remover(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
