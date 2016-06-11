@@ -1,0 +1,32 @@
+@(listaClientes: List[Cliente]) @main("Lista de Clientes") {
+<h2>Todos os Clientes</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>item.nome</th>
+			<th>item.dataNascimento</th>
+			<th>item.email</th>
+			<th>item.apelido</th>
+			<th>item.cpf</th>
+			<th>item.rg</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for(item <- listaClientes) {
+		<tr>
+			<td>@item.nome</td>
+			<td>@item.dataNascimento</td>
+			<td>@item.email</td>
+			<td>@item.apelido</td>
+			<td>@item.cpf</td>
+			<td>@item.rg</td>
+			<td><a href="@routes.ClientesController.formulario(item.id)">Editar</a></td>
+			<td><a href="@routes.ClientesController.remover(item.id)"
+				onclick="return confirm('Deseja realmente excluir esse cliente?')">Remover</a></td>
+		</tr>
+		}
+	</tbody>
+</table>
+<a href="@routes.ClientesController.novo()"><button>Novo Cliente</button></a>
+
+}

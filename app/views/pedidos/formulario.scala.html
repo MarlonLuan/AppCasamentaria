@@ -1,0 +1,17 @@
+@(formPedido: Form[Pedido])
+@import helper._
+@main("Formulário de Pedidos") {
+
+<h1>Formulário de Pedido</h1>
+@helper.form(action = routes.PedidosController.salvar()) {
+<fieldset>
+	<legend>Pedido (@formPedido("id").valueOr("Novo"))</legend>
+	<input type="hidden" name="id" value='@formPedido("id").value'>
+
+	@helper.inputText(formPedido("valor"), '_label -> "valor")
+	@helper.inputText(formPedido("data"), '_label -> "data")
+	@helper.inputText(formPedido("status"), '_label -> "status")
+</fieldset>
+<input type="submit" class="btn btn-primary" value="Salvar">
+<a class="btn" href="@routes.PedidosController.lista()">Cancelar</a>
+} }

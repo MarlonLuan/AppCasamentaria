@@ -1,0 +1,24 @@
+@(listaTelefones: List[Telefone]) @main("Lista de Telefones") {
+<h2>Todos os Telefones</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>item.ddd</th>
+			<th>item.numero</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for(item <- listaTelefones) {
+		<tr>
+			<td>@item.ddd</td>
+			<td>@item.numero</td>
+			<td><a href="@routes.TelefonesController.formulario(item.id)">Editar</a></td>
+			<td><a href="@routes.TelefonesController.remover(item.id)"
+				onclick="return confirm('Deseja realmente excluir esse telefone?')">Remover</a></td>
+		</tr>
+		}
+	</tbody>
+</table>
+<a href="@routes.TelefonesController.novo()"><button>Novo Telefone</button></a>
+
+}

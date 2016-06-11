@@ -1,0 +1,26 @@
+@(listaPedidos: List[Pedido]) @main("Lista de Pedidos") {
+<h2>Todos os Pedidos</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>item.valor</th>
+			<th>item.data</th>
+			<th>item.status</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for(item <- listaPedidos) {
+		<tr>
+			<td>@item.valor</td>
+			<td>@item.data</td>
+			<td>@item.status</td>
+			<td><a href="@routes.PedidosController.formulario(item.id)">Editar</a></td>
+			<td><a href="@routes.PedidosController.remover(item.id)"
+				onclick="return confirm('Deseja realmente excluir esse pedido?')">Remover</a></td>
+		</tr>
+		}
+	</tbody>
+</table>
+<a href="@routes.PedidosController.novo()"><button>Novo Pedido</button></a>
+
+}

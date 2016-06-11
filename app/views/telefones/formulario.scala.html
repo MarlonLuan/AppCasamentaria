@@ -1,0 +1,16 @@
+@(formTelefone: Form[Telefone])
+@import helper._
+@main("Formulário de Telefones") {
+
+<h1>Formulário de Telefone</h1>
+@helper.form(action = routes.TelefonesController.salvar()) {
+<fieldset>
+	<legend>Telefone (@formTelefone("id").valueOr("Novo"))</legend>
+	<input type="hidden" name="id" value='@formTelefone("id").value'>
+
+	@helper.inputText(formTelefone("ddd"), '_label -> "ddd")
+	@helper.inputText(formTelefone("numero"), '_label -> "numero")
+</fieldset>
+<input type="submit" class="btn btn-primary" value="Salvar">
+<a class="btn" href="@routes.TelefonesController.lista()">Cancelar</a>
+} }

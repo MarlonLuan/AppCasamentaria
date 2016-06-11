@@ -1,0 +1,19 @@
+@(formProduto: Form[Produto])
+@import helper._
+@main("Formulário de Produtos") {
+
+<h1>Formulário de Produto</h1>
+@helper.form(action = routes.ProdutosController.salvar()) {
+<fieldset>
+	<legend>Produto (@formProduto("id").valueOr("Novo"))</legend>
+	<input type="hidden" name="id" value='@formProduto("id").value'>
+
+	@helper.inputText(formProduto("nome"), '_label -> "Nome")
+	@helper.inputText(formProduto("descricao"), '_label -> "descricao")
+	@helper.inputText(formProduto("peso"), '_label -> "peso")
+	@helper.inputText(formProduto("tamanho"),'_label -> "tamanho")
+	@helper.inputText(formProduto("preco"), '_label -> "preco")
+</fieldset>
+<input type="submit" class="btn btn-primary" value="Salvar">
+<a class="btn" href="@routes.ProdutosController.lista()">Cancelar</a>
+} }

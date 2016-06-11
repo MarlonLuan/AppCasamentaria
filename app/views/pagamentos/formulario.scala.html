@@ -1,0 +1,15 @@
+@(formPagamento: Form[Pagamento])
+@import helper._
+@main("Formulário de Pagamentos") {
+
+<h1>Formulário de Pagamento</h1>
+@helper.form(action = routes.PagamentosController.salvar()) {
+<fieldset>
+	<legend>Pagamento (@formPagamento("id").valueOr("Novo"))</legend>
+	<input type="hidden" name="id" value='@formPagamento("id").value'>
+
+	@helper.inputText(formPagamento("ativo"), '_label -> "ativo")
+</fieldset>
+<input type="submit" class="btn btn-primary" value="Salvar">
+<a class="btn" href="@routes.PagamentosController.lista()">Cancelar</a>
+} }

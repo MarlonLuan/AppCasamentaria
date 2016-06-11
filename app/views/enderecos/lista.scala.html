@@ -1,0 +1,34 @@
+@(listaEnderecos: List[Endereco]) @main("Lista de Enderecos") {
+<h2>Todos os Enderecos</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>item.logradouro</th>
+			<th>item.numero</th>
+			<th>item.complemento</th>
+			<th>item.cep</th>
+			<th>item.bairro</th>
+			<th>item.cidade</th>
+			<th>item.uf</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for(item <- listaEnderecos) {
+		<tr>
+			<td>@item.logradouro</td>
+			<td>@item.numero</td>
+			<td>@item.complemento</td>
+			<td>@item.cep</td>
+			<td>@item.bairro</td>
+			<td>@item.cidade</td>
+			<td>@item.uf</td>
+			<td><a href="@routes.EnderecosController.formulario(item.id)">Editar</a></td>
+			<td><a href="@routes.EnderecosController.remover(item.id)"
+				onclick="return confirm('Deseja realmente excluir esse endereco?')">Remover</a></td>
+		</tr>
+		}
+	</tbody>
+</table>
+<a href="@routes.EnderecosController.novo()"><button>Novo Endereco</button></a>
+
+}

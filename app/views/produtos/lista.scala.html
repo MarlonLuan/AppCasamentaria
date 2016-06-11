@@ -1,0 +1,30 @@
+@(listaProdutos: List[Produto]) @main("Lista de Produtos") {
+<h2>Todos os Produtos</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>item.nome</th>
+			<th>item.descricao</th>
+			<th>item.peso</th>
+			<th>item.tamanho</th>
+			<th>item.preco</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for(item <- listaProdutos) {
+		<tr>
+			<td>@item.nome</td>
+			<td>@item.descricao</td>
+			<td>@item.peso</td>
+			<td>@item.tamanho</td>
+			<td>@item.preco</td>
+			<td><a href="@routes.ProdutosController.formulario(item.id)">Editar</a></td>
+			<td><a href="@routes.ProdutosController.remover(item.id)"
+				onclick="return confirm('Deseja realmente excluir esse produto?')">Remover</a></td>
+		</tr>
+		}
+	</tbody>
+</table>
+<a href="@routes.ProdutosController.novo()"><button>Novo Produto</button></a>
+
+}

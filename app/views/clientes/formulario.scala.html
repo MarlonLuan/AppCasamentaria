@@ -1,0 +1,20 @@
+@(formCliente: Form[Cliente])
+@import helper._
+@main("Formulário de Clientes") {
+
+<h1>Formulário de Cliente</h1>
+@helper.form(action = routes.ClientesController.salvar()) {
+<fieldset>
+	<legend>Cliente (@formCliente("id").valueOr("Novo"))</legend>
+	<input type="hidden" name="id" value='@formCliente("id").value'>
+
+	@helper.inputText(formCliente("nome"), '_label -> "Nome")
+	@helper.inputText(formCliente("dataNascimento"), '_label -> "dataNascimento")
+	@helper.inputText(formCliente("email"), '_label -> "email")
+	@helper.inputText(formCliente("apelido"),'_label -> "apelido")
+	@helper.inputText(formCliente("cpf"), '_label -> "cpf")
+	@helper.inputText(formCliente("rg"), '_label -> "rg")
+</fieldset>
+<input type="submit" class="btn btn-primary" value="Salvar">
+<a class="btn" href="@routes.ClientesController.lista()">Cancelar</a>
+} }
