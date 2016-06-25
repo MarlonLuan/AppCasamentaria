@@ -28,7 +28,7 @@ public class EnderecosController extends Controller {
 		final Endereco endereco = Endereco.find.byId(id);
 
 		if (endereco == null) {
-			return notFound(String.format("Endereco %s não existe.", id));
+			return notFound(String.format("Endereço %s não existe.", id));
 		}
 
 		Form<Endereco> formPreenchido = formEndereco.fill(endereco);
@@ -42,10 +42,10 @@ public class EnderecosController extends Controller {
 		Endereco endereco = formEnviado.get();
 		if (endereco.id != null) {
 			endereco.update();
-			flash("success", String.format("Endereco %s atualizado.", endereco));
+			flash("success", String.format("Endereço %s atualizado.", endereco));
 		} else {
 			endereco.save();
-			flash("success", String.format("Endereco %s salvo.", endereco));
+			flash("success", String.format("Endereço %s salvo.", endereco));
 		}
 		return redirect(routes.EnderecosController.lista());
 	}
@@ -56,9 +56,9 @@ public class EnderecosController extends Controller {
 
 		try {
 			endereco.delete();
-			flash("success", String.format("Endereco %s removido com sucesso.", endereco));
+			flash("success", String.format("Endereço %s removido com sucesso.", endereco));
 		} catch (Exception e) {
-			flash("error", "Erro ao remover endereco");
+			flash("error", "Erro ao remover endereço");
 		}
 
 		return redirect(routes.EnderecosController.lista());

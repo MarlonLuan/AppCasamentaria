@@ -32,9 +32,9 @@ public class Produto extends Model {
 	@Required
 	public Float preco;
 
-	@ManyToOne 
+	@ManyToOne
 	public Categoria categoria;
-	
+
 	@ManyToOne
 	public Pedido pedido;
 

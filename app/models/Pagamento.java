@@ -17,6 +17,7 @@ public class Pagamento extends Model {
 	@GeneratedValue
 	public Long id;
 
+	@Required
 	public Boolean ativo;
 
 	public String toString() {

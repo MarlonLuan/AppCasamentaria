@@ -42,10 +42,10 @@ public class CategoriasController extends Controller {
 		Categoria categoria = formEnviado.get();
 		if (categoria.id != null) {
 			categoria.update();
-			flash("success", String.format("Categoria %s atualizado.", categoria));
+			flash("success", String.format("Categoria %s atualizada.", categoria));
 		} else {
 			categoria.save();
-			flash("success", String.format("Categoria %s salvo.", categoria));
+			flash("success", String.format("Categoria %s salva.", categoria));
 		}
 		return redirect(routes.CategoriasController.lista());
 	}
@@ -56,7 +56,7 @@ public class CategoriasController extends Controller {
 
 		try {
 			categoria.delete();
-			flash("success", String.format("Categoria %s removido com sucesso.", categoria));
+			flash("success", String.format("Categoria %s removida com sucesso.", categoria));
 		} catch (Exception e) {
 			flash("error", "Erro ao remover categoria");
 		}

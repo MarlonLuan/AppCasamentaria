@@ -18,14 +18,14 @@ public class Telefone extends Model {
 	public Long id;
 
 	@Required
-    public String ddd;
-    
-    @Required
+	public String ddd;
+
+	@Required
 	public String numero;
 
 	@ManyToOne
 	public Cliente cliente;
-	
+
 	public String toString() {
 		return ddd + numero;
 	}
