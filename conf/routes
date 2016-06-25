@@ -5,6 +5,13 @@
 # Home page
 GET     /                       @controllers.Application.index()
 
+#Categorias
+GET    /categorias                @controllers.CategoriasController.lista()
+GET    /categorias/novo           @controllers.CategoriasController.novo()
+POST   /categorias/salvar         @controllers.CategoriasController.salvar()
+GET    /categorias/formulario/:id @controllers.CategoriasController.formulario(id:Long)
+GET    /categorias/remover/:id    @controllers.CategoriasController.remover(id:Long)
+
 #Clientes
 GET    /clientes                @controllers.ClientesController.lista()
 GET    /clientes/novo           @controllers.ClientesController.novo()
@@ -19,6 +26,13 @@ POST   /enderecos/salvar         @controllers.EnderecosController.salvar()
 GET    /enderecos/formulario/:id @controllers.EnderecosController.formulario(id:Long)
 GET    /enderecos/remover/:id    @controllers.EnderecosController.remover(id:Long)
 
+#Pagamentos
+GET    /pagamentos                @controllers.PagamentosController.lista()
+GET    /pagamentos/novo           @controllers.PagamentosController.novo()
+POST   /pagamentos/salvar         @controllers.PagamentosController.salvar()
+GET    /pagamentos/formulario/:id @controllers.PagamentosController.formulario(id:Long)
+GET    /pagamentos/remover/:id    @controllers.PagamentosController.remover(id:Long)
+
 #Pedidos
 GET    /pedidos                @controllers.PedidosController.lista()
 GET    /pedidos/novo           @controllers.PedidosController.novo()
@@ -32,13 +46,6 @@ GET    /produtos/novo           @controllers.ProdutosController.novo()
 POST   /produtos/salvar         @controllers.ProdutosController.salvar()
 GET    /produtos/formulario/:id @controllers.ProdutosController.formulario(id:Long)
 GET    /produtos/remover/:id    @controllers.ProdutosController.remover(id:Long)
-
-#Pagamentos
-GET    /pagamentos                @controllers.PagamentosController.lista()
-GET    /pagamentos/novo           @controllers.PagamentosController.novo()
-POST   /pagamentos/salvar         @controllers.PagamentosController.salvar()
-GET    /pagamentos/formulario/:id @controllers.PagamentosController.formulario(id:Long)
-GET    /pagamentos/remover/:id    @controllers.PagamentosController.remover(id:Long)
 
 #Telefones
 GET    /telefones                @controllers.TelefonesController.lista()

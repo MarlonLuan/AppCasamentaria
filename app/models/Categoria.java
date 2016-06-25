@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,7 +13,7 @@ import com.avaje.ebean.Model.Finder;
 import play.data.validation.Constraints.Required;
 
 @Entity
-public class Produto extends Model {
+public class Categoria extends Model {
 
 	@Id
 	@GeneratedValue
@@ -23,27 +25,12 @@ public class Produto extends Model {
 	@Required
 	public String descricao;
 
-	@Required
-	public Float peso;
-
-	@Required
-	public Float tamanho;
-
-	@Required
-	public Float preco;
-
-	@ManyToOne 
-	public Categoria categoria;
-	
-	@ManyToOne
-	public Pedido pedido;
-
 	public String toString() {
 		return nome;
 	}
 
-	public static Finder<Long, Produto> find = new Finder<Long, Produto>(Produto.class);
+	public static Finder<Long, Categoria> find = new Finder<Long, Categoria>(Categoria.class);
 
-	public Produto() {
+	public Categoria() {
 	}
 }

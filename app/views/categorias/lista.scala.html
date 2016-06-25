@@ -1,0 +1,24 @@
+@(listaCategorias: List[Categoria]) @main("Lista de Categorias") {
+<h2>Todos as Categorias</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>item.nome</th>
+			<th>item.descricao</th>
+		</tr>
+	</thead>
+	<tbody>
+		@for(item <- listaCategorias) {
+		<tr>
+			<td>@item.nome</td>
+			<td>@item.descricao</td>
+			<td><a href="@routes.CategoriasController.formulario(item.id)">Editar</a></td>
+			<td><a href="@routes.CategoriasController.remover(item.id)"
+				onclick="return confirm('Deseja realmente excluir essa categoria?')">Remover</a></td>
+		</tr>
+		}
+	</tbody>
+</table>
+<a href="@routes.CategoriasController.novo()"><button>Nova Categoria</button></a>
+
+}

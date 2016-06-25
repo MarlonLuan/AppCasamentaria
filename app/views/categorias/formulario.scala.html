@@ -1,0 +1,16 @@
+@(formCategoria: Form[Categoria])
+@import helper._
+@main("Formulário de Categorias") {
+
+<h1>Formulário de Categoria</h1>
+@helper.form(action = routes.CategoriasController.salvar()) {
+<fieldset>
+	<legend>Categoria (@formCategoria("id").valueOr("Novo"))</legend>
+	<input type="hidden" name="id" value='@formCategoria("id").value'>
+
+	@helper.inputText(formCategoria("nome"), '_label -> "Nome")
+	@helper.inputText(formCategoria("descricao"), '_label -> "Descrição")
+</fieldset>
+<input type="submit" class="btn btn-primary" value="Salvar">
+<a class="btn" href="@routes.CategoriasController.lista()">Cancelar</a>
+} }
