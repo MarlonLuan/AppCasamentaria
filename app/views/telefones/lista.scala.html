@@ -9,7 +9,7 @@
 	<tbody>
 		@for(item <- listaTelefones) {
 		<tr>
-			<td>(@item.ddd) @item.numero</td>
+			<td>@item</td>
 			<td><a href="@routes.TelefonesController.formulario(item.id)">Editar</a></td>
 			<td><a href="@routes.TelefonesController.remover(item.id)"
 				onclick="return confirm('Deseja realmente excluir esse telefone?')">Remover</a></td>

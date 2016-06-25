@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 import com.avaje.ebean.Model;
 import com.avaje.ebean.Model.Finder;
@@ -32,7 +33,7 @@ public class Cliente extends Model {
 	public String apelido;
 
 	@Required
-	public String cpf;
+	public Integer cpf;
 
 	@Required
 	public String rg;

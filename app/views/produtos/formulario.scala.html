@@ -10,9 +10,9 @@
 
 	@helper.inputText(formProduto("nome"), '_label -> "Nome:")
 	@helper.inputText(formProduto("descricao"), '_label -> "Descrição:")
-	@helper.inputText(formProduto("peso"), '_label -> "Peso:")
-	@helper.inputText(formProduto("tamanho"),'_label -> "Tamanho:")
-	@helper.inputText(formProduto("preco"), '_label -> "Preço:")
+	@helper.inputText(formProduto("peso"), '_label -> "Peso:", 'type -> "number")
+	@helper.inputText(formProduto("tamanho"),'_label -> "Tamanho:", 'type -> "number")
+	@helper.inputText(formProduto("preco"), '_label -> "Preço:", 'type -> "number")
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">
 <a class="btn" href="@routes.ProdutosController.lista()">Cancelar</a>

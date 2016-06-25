@@ -9,10 +9,10 @@
 	<input type="hidden" name="id" value='@formCliente("id").value'>
 
 	@helper.inputText(formCliente("nome"), '_label -> "Nome:")
-	@helper.inputText(formCliente("dataNascimento"), '_label -> "Data de Nascimento:")
+	@helper.inputText(formCliente("dataNascimento"), '_label -> "Data de Nascimento:", 'type -> "date")
 	@helper.inputText(formCliente("email"), '_label -> "E-mail:")
 	@helper.inputText(formCliente("apelido"),'_label -> "Apelido:")
-	@helper.inputText(formCliente("cpf"), '_label -> "CPF:")
+	@helper.inputText(formCliente("cpf"), '_label -> "CPF:", 'type -> "number")
 	@helper.inputText(formCliente("rg"), '_label -> "RG:")
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">

@@ -18,16 +18,16 @@ public class Telefone extends Model {
 	public Long id;
 
 	@Required
-	public String ddd;
+	public Integer ddd;
 
 	@Required
-	public String numero;
+	public Integer numero;
 
 	@ManyToOne
 	public Cliente cliente;
 
 	public String toString() {
-		return ddd + numero;
+		return "(" + ddd.toString() + ") " + numero.toString();
 	}
 
 	public static Finder<Long, Telefone> find = new Finder<Long, Telefone>(Telefone.class);

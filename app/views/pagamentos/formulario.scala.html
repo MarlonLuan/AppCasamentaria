@@ -8,7 +8,7 @@
 	<legend>Pagamento (@formPagamento("id").valueOr("Novo"))</legend>
 	<input type="hidden" name="id" value='@formPagamento("id").value'>
 
-	@helper.inputText(formPagamento("ativo"), '_label -> "Ativo:")
+	@helper.inputText(formPagamento("ativo"), '_label -> "Ativo:", 'type -> "checkbox")
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">
 <a class="btn" href="@routes.PagamentosController.lista()">Cancelar</a>

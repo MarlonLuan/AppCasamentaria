@@ -26,7 +26,7 @@ public class Endereco extends Model {
 	public String complemento;
 
 	@Required
-	public String cep;
+	public Integer cep;
 
 	@Required
 	public String bairro;
