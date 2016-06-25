@@ -3,13 +3,12 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>item.logradouro</th>
-			<th>item.numero</th>
-			<th>item.complemento</th>
-			<th>item.cep</th>
-			<th>item.bairro</th>
-			<th>item.cidade</th>
-			<th>item.uf</th>
+			<th>Logradouro</th>
+			<th>Número</th>
+			<th>Complemento</th>
+			<th>CEP</th>
+			<th>Bairro</th>
+			<th>Cidade</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -20,15 +19,14 @@
 			<td>@item.complemento</td>
 			<td>@item.cep</td>
 			<td>@item.bairro</td>
-			<td>@item.cidade</td>
-			<td>@item.uf</td>
+			<td>@item.cidade - @item.uf</td>
 			<td><a href="@routes.EnderecosController.formulario(item.id)">Editar</a></td>
 			<td><a href="@routes.EnderecosController.remover(item.id)"
-				onclick="return confirm('Deseja realmente excluir esse endereco?')">Remover</a></td>
+				onclick="return confirm('Deseja realmente excluir esse endereço?')">Remover</a></td>
 		</tr>
 		}
 	</tbody>
 </table>
-<a href="@routes.EnderecosController.novo()"><button>Novo Endereco</button></a>
+<a href="@routes.EnderecosController.novo()"><button>Novo Endereço</button></a>
 
 }

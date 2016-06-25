@@ -8,11 +8,11 @@
 	<legend>Produto (@formProduto("id").valueOr("Novo"))</legend>
 	<input type="hidden" name="id" value='@formProduto("id").value'>
 
-	@helper.inputText(formProduto("nome"), '_label -> "Nome")
-	@helper.inputText(formProduto("descricao"), '_label -> "descricao")
-	@helper.inputText(formProduto("peso"), '_label -> "peso")
-	@helper.inputText(formProduto("tamanho"),'_label -> "tamanho")
-	@helper.inputText(formProduto("preco"), '_label -> "preco")
+	@helper.inputText(formProduto("nome"), '_label -> "Nome:")
+	@helper.inputText(formProduto("descricao"), '_label -> "Descrição:")
+	@helper.inputText(formProduto("peso"), '_label -> "Peso:")
+	@helper.inputText(formProduto("tamanho"),'_label -> "Tamanho:")
+	@helper.inputText(formProduto("preco"), '_label -> "Preço:")
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">
 <a class="btn" href="@routes.ProdutosController.lista()">Cancelar</a>

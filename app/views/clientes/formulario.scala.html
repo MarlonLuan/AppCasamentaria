@@ -8,12 +8,12 @@
 	<legend>Cliente (@formCliente("id").valueOr("Novo"))</legend>
 	<input type="hidden" name="id" value='@formCliente("id").value'>
 
-	@helper.inputText(formCliente("nome"), '_label -> "Nome")
-	@helper.inputText(formCliente("dataNascimento"), '_label -> "dataNascimento")
-	@helper.inputText(formCliente("email"), '_label -> "email")
-	@helper.inputText(formCliente("apelido"),'_label -> "apelido")
-	@helper.inputText(formCliente("cpf"), '_label -> "cpf")
-	@helper.inputText(formCliente("rg"), '_label -> "rg")
+	@helper.inputText(formCliente("nome"), '_label -> "Nome:")
+	@helper.inputText(formCliente("dataNascimento"), '_label -> "Data de Nascimento:")
+	@helper.inputText(formCliente("email"), '_label -> "E-mail:")
+	@helper.inputText(formCliente("apelido"),'_label -> "Apelido:")
+	@helper.inputText(formCliente("cpf"), '_label -> "CPF:")
+	@helper.inputText(formCliente("rg"), '_label -> "RG:")
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">
 <a class="btn" href="@routes.ClientesController.lista()">Cancelar</a>

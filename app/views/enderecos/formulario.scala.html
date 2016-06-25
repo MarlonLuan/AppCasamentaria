@@ -8,13 +8,13 @@
 	<legend>Endereco (@formEndereco("id").valueOr("Novo"))</legend>
 	<input type="hidden" name="id" value='@formEndereco("id").value'>
 
-	@helper.inputText(formEndereco("logradouro"), '_label -> "logradouro")
-	@helper.inputText(formEndereco("numero"), '_label -> "numero")
-	@helper.inputText(formEndereco("complemento"), '_label -> "complemento")
-	@helper.inputText(formEndereco("cep"),'_label -> "cep")
-	@helper.inputText(formEndereco("bairro"), '_label -> "bairro")
-	@helper.inputText(formEndereco("cidade"), '_label -> "cidade")
-	@helper.inputText(formEndereco("uf"), '_label -> "uf")
+	@helper.inputText(formEndereco("logradouro"), '_label -> "Logradouro:")
+	@helper.inputText(formEndereco("numero"), '_label -> "Número:")
+	@helper.inputText(formEndereco("complemento"), '_label -> "Complemento:")
+	@helper.inputText(formEndereco("cep"),'_label -> "CEP:")
+	@helper.inputText(formEndereco("bairro"), '_label -> "Bairro:")
+	@helper.inputText(formEndereco("cidade"), '_label -> "Cidade:")
+	@helper.inputText(formEndereco("uf"), '_label -> "UF:")
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">
 <a class="btn" href="@routes.EnderecosController.lista()">Cancelar</a>

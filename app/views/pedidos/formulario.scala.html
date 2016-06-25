@@ -8,9 +8,9 @@
 	<legend>Pedido (@formPedido("id").valueOr("Novo"))</legend>
 	<input type="hidden" name="id" value='@formPedido("id").value'>
 
-	@helper.inputText(formPedido("valor"), '_label -> "valor")
-	@helper.inputText(formPedido("data"), '_label -> "data")
-	@helper.inputText(formPedido("status"), '_label -> "status")
+	@helper.inputText(formPedido("valor"), '_label -> "Valor:")
+	@helper.inputText(formPedido("data"), '_label -> "Data:")
+	@helper.inputText(formPedido("status"), '_label -> "Status:")
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">
 <a class="btn" href="@routes.PedidosController.lista()">Cancelar</a>
