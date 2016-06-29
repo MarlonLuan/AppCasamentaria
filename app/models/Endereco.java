@@ -1,12 +1,10 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import java.util.Date;
+
+import javax.persistence.*;
 
 import com.avaje.ebean.Model;
-import com.avaje.ebean.Model.Finder;
 
 import play.data.validation.Constraints.Required;
 
