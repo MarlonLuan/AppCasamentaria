@@ -5,6 +5,18 @@
 # Home page
 GET     /                       @controllers.Application.index()
 
+
+GET    /login                   @controllers.UsuariosController.index()
+GET    /entrar                  @controllers.UsuariosController.entrar()
+
+#Usuarios
+GET    /usuarios                @controllers.UsuariosController.lista()
+GET    /usuarios/novo           @controllers.UsuariosController.novo()
+POST   /usuarios/salvar         @controllers.UsuariosController.salvar()
+GET    /usuarios/formulario/:id @controllers.UsuariosController.formulario(id:Long)
+GET    /usuarios/remover/:id    @controllers.UsuariosController.remover(id:Long)
+
+
 #Categorias
 GET    /categorias                @controllers.CategoriasController.lista()
 GET    /categorias/novo           @controllers.CategoriasController.novo()

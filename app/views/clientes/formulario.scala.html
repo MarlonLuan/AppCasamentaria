@@ -14,6 +14,9 @@
 	@helper.inputText(formCliente("apelido"),'_label -> "Apelido:")
 	@helper.inputText(formCliente("cpf"), '_label -> "CPF:", 'type -> "number")
 	@helper.inputText(formCliente("rg"), '_label -> "RG:")
+	@helper.inputText(formCliente("login"), '_label -> "Login:")
+	@helper.inputText(formCliente("password"), '_label -> "Senha:")
+	@helper.inputText(formCliente("perfil"), '_label -> "Perfil:")
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">
 <a class="btn" href="@routes.ClientesController.lista()">Cancelar</a>

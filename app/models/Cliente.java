@@ -9,11 +9,7 @@ import com.avaje.ebean.Model;
 import play.data.validation.Constraints.Required;
 
 @Entity
-public class Cliente extends Model {
-
-	@Id
-	@GeneratedValue
-	public Long id;
+public class Cliente extends Usuario {
 
 	@Required
 	public String nome;

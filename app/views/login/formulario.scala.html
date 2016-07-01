@@ -1,0 +1,25 @@
+@(formUsuario: Form[Usuario])
+@import helper._
+@main("Formulário de Usuários") {
+
+@if(flash.containsKey("success")){
+	<div class="alert alert-success">@flash.get("success")</div>
+	} @if(flash.containsKey("error")){
+	<div class="alert alert-danger">@flash.get("error")</div>
+	}
+	
+<h1>Formulário de Usuario</h1>
+@helper.form(action = routes.UsuariosController.entrar()) {
+<fieldset>
+	<legend>Usuario (@formUsuario("id").valueOr("Novo"))</legend>
+	<input type="hidden" name="id" value='@formUsuario("id").value'>
+
+	@helper.inputText(formUsuario("perfil"), '_label -> "Perfil:")
+	@helper.inputText(formUsuario("login"), '_label -> "Login:")
+	@helper.inputText(formUsuario("password"), '_label -> "Senha:", 'type -> "password")
+</fieldset>
+<input type="submit" class="btn btn-primary" value="Acessar Sistema">
+<a class="btn" href="@routes.UsuariosController.lista()">Cancelar</a>
+<a class="btn" href="@routes.UsuariosController.novo()">
+Ainda não é cadastrado? Cadastre-se aqui</a>
+} }
