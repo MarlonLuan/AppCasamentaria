@@ -1,8 +1,10 @@
-@(listaEnderecos: List[Endereco]) @main("Lista de Enderecos") {
+@(listaEnderecos: List[Endereco])
+@main("Lista de Enderecos") {
 <h2>Todos os Enderecos</h2>
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<th>Cliente</th>
 			<th>Logradouro</th>
 			<th>Número</th>
 			<th>Complemento</th>
@@ -14,6 +16,7 @@
 	<tbody>
 		@for(item <- listaEnderecos) {
 		<tr>
+			<td>@item.cliente</td>
 			<td>@item.logradouro</td>
 			<td>@item.numero</td>
 			<td>@item.complemento</td>

@@ -1,5 +1,6 @@
 package controllers;
 
+import play.data.DynamicForm;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -8,11 +9,14 @@ import views.html.*;
 
 import java.util.List;
 
+import models.Cliente;
 import models.Endereco;
 
 public class EnderecosController extends Controller {
 
 	private final Form<Endereco> formEndereco = Form.form(Endereco.class);
+	List<Cliente> listaPlanetas = Cliente.find.all();
+	Endereco endereco = new Endereco();
 
 	public Result lista() {
 		List<Endereco> listaEnderecos = Endereco.find.all();
@@ -20,7 +24,7 @@ public class EnderecosController extends Controller {
 	}
 
 	public Result novo() {
-		return ok(views.html.enderecos.formulario.render(formEndereco));
+		return ok(views.html.enderecos.formulario.render(formEndereco, listaPlanetas));
 	}
 
 	public Result formulario(Long id) {
@@ -33,13 +37,21 @@ public class EnderecosController extends Controller {
 
 		Form<Endereco> formPreenchido = formEndereco.fill(endereco);
 
-		return ok(views.html.enderecos.formulario.render(formPreenchido));
+		return ok(views.html.enderecos.formulario.render(formPreenchido, listaPlanetas));
 	}
 
 	public Result salvar() {
-
-		Form<Endereco> formEnviado = formEndereco.bindFromRequest();
-		Endereco endereco = formEnviado.get();
+		DynamicForm formEnviado = Form.form().bindFromRequest();
+		
+		endereco.cliente = Cliente.find.byId(Long.parseLong(formEnviado.get("cliente")));
+		endereco.logradouro = formEnviado.get("logradouro");
+		endereco.numero = Integer.parseInt(formEnviado.get("numero"));
+		endereco.complemento = formEnviado.get("complemento");
+		endereco.cep = Integer.parseInt(formEnviado.get("cep"));
+		endereco.bairro = formEnviado.get("bairro");
+		endereco.cidade = formEnviado.get("cidade");
+		endereco.uf = formEnviado.get("uf");
+		
 		if (endereco.id != null) {
 			endereco.update();
 			flash("success", String.format("Endereço %s atualizado.", endereco));

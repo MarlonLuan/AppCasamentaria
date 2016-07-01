@@ -35,6 +35,7 @@ public class Endereco extends Model {
 	@Required
 	public String uf;
 
+	@Required
 	@ManyToOne
 	public Cliente cliente;
 

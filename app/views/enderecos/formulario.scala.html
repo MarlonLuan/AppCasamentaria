@@ -1,12 +1,27 @@
-@(formEndereco: Form[Endereco])
+@(formEndereco: Form[Endereco], listaClientes: List[Cliente])
 @import helper._
 @main("Formulário de Enderecos") {
 
 <h1>Formulário de Endereco</h1>
 @helper.form(action = routes.EnderecosController.salvar()) {
 <fieldset>
-	<legend>Endereco (@formEndereco("id").valueOr("Novo"))</legend>
+	<legend>Endereço (@formEndereco("id").valueOr("Novo"))</legend>
 	<input type="hidden" name="id" value='@formEndereco("id").value'>
+
+        
+	<dl class=" " id="cliente_field">
+		<dt>
+			<label for="cliente">Cliente</label>
+		</dt>
+		<dd>
+			<select id="cliente" name="cliente">
+				<option value=""></option>
+				@for(item <- listaClientes) {
+					<option value="@item.id">@item.nome</option>
+				}
+			</select>
+		</dd>
+	</dl>
 
 	@helper.inputText(formEndereco("logradouro"), '_label -> "Logradouro:")
 	@helper.inputText(formEndereco("numero"), '_label -> "Número:", 'type -> "number")
