@@ -1,0 +1,44 @@
+<div id="top">
+	<div class="container">
+		<div class="col-md-6 offer" data-animate="fadeInDown">
+			<a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Oferta do dia</a> <a href="#">Vestidos com 5% de desconto!</a>
+		</div>
+
+		@if(session().isEmpty()){
+
+		<div class="col-md-6" data-animate="fadeInDown">
+			<ul class="menu">
+				<li><a class="btn" href="@routes.UsuariosController.index()">Login</a></li>
+				<li><a class="btn" href="@routes.ClientesController.novo()">Cadastrar</a></li>
+				<li><a class="btn" href="#">Contatos</a>
+			</ul>
+		</div>
+
+		} else{ @if(session.get("perfil").equals("0")){
+		<div class="col-md-12" data-animate="fadeInDown">
+			<ul class="menu">
+				<li><a class="btn" href="@routes.Application.index()">Usuário: @session.get("login").toString()</a></li>
+				<li><a class="btn" href="@routes.ClientesController.lista()">Clientes</a></li>
+				<li><a class="btn" href="@routes.EnderecosController.lista()">Endereços</a></li>
+				<li><a class="btn" href="@routes.CategoriasController.lista()">Categorias</a></li>
+				<li><a class="btn" href="@routes.ProdutosController.lista()">Produtos</a></li>
+				<li><a class="btn" href="@routes.UsuariosController.lista()">Usuários</a></li>
+				<li><a class="btn" href="@routes.UsuariosController.sair()"><i class="fa fa-sign-out"></i> Logout</a></li>
+			</ul>
+		</div>
+
+		}else{
+
+		<div class="col-md-6" data-animate="fadeInDown">
+			<ul class="menu">
+
+				<li><a class="btn" href="@routes.Application.index()">Usuário: @session.get("login").toString()</a></li>
+				<li><a class="btn" href="@routes.ClientesController.novo()">Cadastrar</a></li>
+				<li><a class="btn" href="#">Contatos</a></li>
+				<li><a class="btn" href="@routes.UsuariosController.sair()"><i class="fa fa-sign-out"></i> Logout</a></li>
+			</ul>
+		</div>
+		} }
+
+	</div>
+</div>
