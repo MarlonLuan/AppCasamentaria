@@ -23,12 +23,13 @@ public class Pedido extends Model {
 
 	@Required
 	public String status;
+	
+	@Required
+	public boolean pagamento;
 
+	@Required
 	@ManyToOne
 	public Cliente cliente;
-
-	@ManyToOne
-	public Pagamento pagamento;
 
 	public String toString() {
 		return valor.toString();

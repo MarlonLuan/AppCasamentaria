@@ -38,13 +38,6 @@ POST   /enderecos/salvar         @controllers.EnderecosController.salvar()
 GET    /enderecos/formulario/:id @controllers.EnderecosController.formulario(id:Long)
 GET    /enderecos/remover/:id    @controllers.EnderecosController.remover(id:Long)
 
-#Pagamentos
-GET    /pagamentos                @controllers.PagamentosController.lista()
-GET    /pagamentos/novo           @controllers.PagamentosController.novo()
-POST   /pagamentos/salvar         @controllers.PagamentosController.salvar()
-GET    /pagamentos/formulario/:id @controllers.PagamentosController.formulario(id:Long)
-GET    /pagamentos/remover/:id    @controllers.PagamentosController.remover(id:Long)
-
 #Pedidos
 GET    /pedidos                @controllers.PedidosController.lista()
 GET    /pedidos/novo           @controllers.PedidosController.novo()
