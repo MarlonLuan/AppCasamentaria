@@ -8,6 +8,7 @@ GET     /                       @controllers.Application.index()
 
 GET    /login                   @controllers.UsuariosController.index()
 GET    /entrar                  @controllers.UsuariosController.entrar()
+GET    /sair                    @controllers.UsuariosController.sair()
 
 #Usuarios
 GET    /usuarios                @controllers.UsuariosController.lista()

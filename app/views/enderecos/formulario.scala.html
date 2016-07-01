@@ -1,7 +1,7 @@
 @(formEndereco: Form[Endereco], listaClientes: List[Cliente])
 @import helper._
-@main("Formulário de Enderecos") {
 
+<hr />
 <h1>Formulário de Endereço</h1>
 @helper.form(action = routes.EnderecosController.salvar()) {
 <fieldset>
@@ -31,4 +31,4 @@
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">
 <a class="btn" href="@routes.EnderecosController.lista()">Cancelar</a>
-} }
+}

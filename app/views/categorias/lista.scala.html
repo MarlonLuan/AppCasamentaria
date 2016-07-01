@@ -1,5 +1,7 @@
 @(listaCategorias: List[Categoria]) @main("Lista de Categorias") {
 <h2>Todos as Categorias</h2>
+
+
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -19,6 +21,8 @@
 		}
 	</tbody>
 </table>
-<a href="@routes.CategoriasController.novo()"><button>Nova Categoria</button></a>
 
-}
+<a id="ajaxButton" name="ajaxButton" href="@routes.CategoriasController.novo()"><button id="cadastro" name="cadastro">Nova Categoria</button></a>
+
+<div id="ajaxCadastro" name="ajaxCadastro">&nbsp;</div>
+}     

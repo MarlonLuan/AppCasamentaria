@@ -1,7 +1,7 @@
 @(formCliente: Form[Cliente])
 @import helper._
-@main("Formulário de Clientes") {
 
+<hr />
 <h1>Formulário de Cliente</h1>
 @helper.form(action = routes.ClientesController.salvar()) {
 <fieldset>
@@ -20,4 +20,4 @@
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">
 <a class="btn" href="@routes.ClientesController.lista()">Cancelar</a>
-} }
+}
