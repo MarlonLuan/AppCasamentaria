@@ -1,4 +1,4 @@
-@(formPedido: Form[Pedido])
+@(formPedido: Form[Pedido], listaClientes: List[Cliente])
 @import helper._
 @main("Formulário de Pedidos") {
 
@@ -8,9 +8,22 @@
 	<legend>Pedido (@formPedido("id").valueOr("Novo"))</legend>
 	<input type="hidden" name="id" value='@formPedido("id").value'>
 
+	<dl class=" " id="cliente_field">
+		<dt>
+			<label for="cliente">Cliente:</label>
+		</dt>
+		<dd>
+			<select id="cliente" name="cliente">
+				<option value=""></option> @for(item <- listaClientes) {
+				<option value="@item.id">@item.nome</option> }
+			</select>
+		</dd>
+	</dl>
+
 	@helper.inputText(formPedido("valor"), '_label -> "Valor:", 'type -> "number")
 	@helper.inputText(formPedido("data"), '_label -> "Data:", 'type -> "date")
 	@helper.inputText(formPedido("status"), '_label -> "Status:")
+	@helper.checkbox(formPedido("pagamento"), '_label -> "Pagamento:")
 </fieldset>
 <input type="submit" class="btn btn-primary" value="Salvar">
 <a class="btn" href="@routes.PedidosController.lista()">Cancelar</a>

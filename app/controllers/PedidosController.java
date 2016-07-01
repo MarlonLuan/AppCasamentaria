@@ -1,18 +1,25 @@
 package controllers;
 
+import play.data.DynamicForm;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 
 import views.html.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
+import models.Cliente;
+import models.Endereco;
 import models.Pedido;
 
 public class PedidosController extends Controller {
 
 	private final Form<Pedido> formPedido = Form.form(Pedido.class);
+	List<Cliente> listaClientes = Cliente.find.all();
+	Pedido pedido = new Pedido();
 
 	public Result lista() {
 		List<Pedido> listaPedidos = Pedido.find.all();
@@ -20,7 +27,7 @@ public class PedidosController extends Controller {
 	}
 
 	public Result novo() {
-		return ok(views.html.pedidos.formulario.render(formPedido));
+		return ok(views.html.pedidos.formulario.render(formPedido, listaClientes));
 	}
 
 	public Result formulario(Long id) {
@@ -33,13 +40,20 @@ public class PedidosController extends Controller {
 
 		Form<Pedido> formPreenchido = formPedido.fill(pedido);
 
-		return ok(views.html.pedidos.formulario.render(formPreenchido));
+		return ok(views.html.pedidos.formulario.render(formPreenchido, listaClientes));
 	}
 
-	public Result salvar() {
-
-		Form<Pedido> formEnviado = formPedido.bindFromRequest();
-		Pedido pedido = formEnviado.get();
+	public Result salvar() throws ParseException {
+		DynamicForm formEnviado = Form.form().bindFromRequest();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		pedido.cliente = Cliente.find.byId(Long.parseLong(formEnviado.get("cliente")));
+		
+		pedido.valor = Double.parseDouble(formEnviado.get("valor"));
+		pedido.data = sdf.parse(formEnviado.get("data"));
+		pedido.status = formEnviado.get("status");
+		pedido.pagamento = Boolean.parseBoolean(formEnviado.get("pagamento"));
+		
 		if (pedido.id != null) {
 			pedido.update();
 			flash("success", String.format("Pedido %s atualizado.", pedido));

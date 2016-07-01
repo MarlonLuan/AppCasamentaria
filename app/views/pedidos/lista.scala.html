@@ -3,17 +3,21 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<th>Cliente</th>
 			<th>Valor</th>
 			<th>Data</th>
 			<th>Status</th>
+			<th>Pagamento</th>
 		</tr>
 	</thead>
 	<tbody>
 		@for(item <- listaPedidos) {
 		<tr>
-			<td>@item.valor</td>
+			<td>@item.cliente</td>
+			<td>R$ @item.valor</td>
 			<td>@item.data</td>
 			<td>@item.status</td>
+			<td>@item.pagamento</td>
 			<td><a href="@routes.PedidosController.formulario(item.id)">Editar</a></td>
 			<td><a href="@routes.PedidosController.remover(item.id)"
 				onclick="return confirm('Deseja realmente excluir esse pedido?')">Remover</a></td>
