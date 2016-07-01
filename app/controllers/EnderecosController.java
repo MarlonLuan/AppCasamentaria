@@ -15,7 +15,7 @@ import models.Endereco;
 public class EnderecosController extends Controller {
 
 	private final Form<Endereco> formEndereco = Form.form(Endereco.class);
-	List<Cliente> listaPlanetas = Cliente.find.all();
+	List<Cliente> listaClientes = Cliente.find.all();
 	Endereco endereco = new Endereco();
 
 	public Result lista() {
@@ -24,7 +24,7 @@ public class EnderecosController extends Controller {
 	}
 
 	public Result novo() {
-		return ok(views.html.enderecos.formulario.render(formEndereco, listaPlanetas));
+		return ok(views.html.enderecos.formulario.render(formEndereco, listaClientes));
 	}
 
 	public Result formulario(Long id) {
@@ -37,7 +37,7 @@ public class EnderecosController extends Controller {
 
 		Form<Endereco> formPreenchido = formEndereco.fill(endereco);
 
-		return ok(views.html.enderecos.formulario.render(formPreenchido, listaPlanetas));
+		return ok(views.html.enderecos.formulario.render(formPreenchido, listaClientes));
 	}
 
 	public Result salvar() {
