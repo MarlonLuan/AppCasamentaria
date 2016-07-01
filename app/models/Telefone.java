@@ -21,6 +21,7 @@ public class Telefone extends Model {
 	@Required
 	public Integer numero;
 
+	@Required
 	@ManyToOne
 	public Cliente cliente;
 

@@ -3,12 +3,14 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<th>Cliente</th>
 			<th>Número</th>
 		</tr>
 	</thead>
 	<tbody>
 		@for(item <- listaTelefones) {
 		<tr>
+			<td>@item.cliente</td>
 			<td>@item</td>
 			<td><a href="@routes.TelefonesController.formulario(item.id)">Editar</a></td>
 			<td><a href="@routes.TelefonesController.remover(item.id)"

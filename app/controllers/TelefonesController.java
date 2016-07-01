@@ -1,5 +1,6 @@
 package controllers;
 
+import play.data.DynamicForm;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -8,11 +9,15 @@ import views.html.*;
 
 import java.util.List;
 
+import models.Cliente;
+import models.Endereco;
 import models.Telefone;
 
 public class TelefonesController extends Controller {
 
 	private final Form<Telefone> formTelefone = Form.form(Telefone.class);
+	List<Cliente> listaClientes = Cliente.find.all();
+	Telefone telefone = new Telefone();
 
 	public Result lista() {
 		List<Telefone> listaTelefones = Telefone.find.all();
@@ -20,7 +25,7 @@ public class TelefonesController extends Controller {
 	}
 
 	public Result novo() {
-		return ok(views.html.telefones.formulario.render(formTelefone));
+		return ok(views.html.telefones.formulario.render(formTelefone, listaClientes));
 	}
 
 	public Result formulario(Long id) {
@@ -33,13 +38,16 @@ public class TelefonesController extends Controller {
 
 		Form<Telefone> formPreenchido = formTelefone.fill(telefone);
 
-		return ok(views.html.telefones.formulario.render(formPreenchido));
+		return ok(views.html.telefones.formulario.render(formPreenchido, listaClientes));
 	}
 
 	public Result salvar() {
-
-		Form<Telefone> formEnviado = formTelefone.bindFromRequest();
-		Telefone telefone = formEnviado.get();
+		DynamicForm formEnviado = Form.form().bindFromRequest();
+		
+		telefone.cliente = Cliente.find.byId(Long.parseLong(formEnviado.get("cliente")));
+		telefone.ddd = Integer.parseInt(formEnviado.get("ddd"));
+		telefone.numero = Integer.parseInt(formEnviado.get("numero"));
+		
 		if (telefone.id != null) {
 			telefone.update();
 			flash("success", String.format("Telefone %s atualizado.", telefone));

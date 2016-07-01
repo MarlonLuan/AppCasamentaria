@@ -1,4 +1,4 @@
-@(formTelefone: Form[Telefone])
+@(formTelefone: Form[Telefone], listaClientes: List[Cliente])
 @import helper._
 @main("Formulário de Telefones") {
 
@@ -7,6 +7,18 @@
 <fieldset>
 	<legend>Telefone (@formTelefone("id").valueOr("Novo"))</legend>
 	<input type="hidden" name="id" value='@formTelefone("id").value'>
+
+	<dl class=" " id="cliente_field">
+		<dt>
+			<label for="cliente">Cliente</label>
+		</dt>
+		<dd>
+			<select id="cliente" name="cliente">
+				<option value=""></option> @for(item <- listaClientes) {
+				<option value="@item.id">@item.nome</option> }
+			</select>
+		</dd>
+	</dl>
 
 	@helper.inputText(formTelefone("ddd"), '_label -> "DDD:", 'type -> "number")
 	@helper.inputText(formTelefone("numero"), '_label -> "Número:", 'type -> "number")
