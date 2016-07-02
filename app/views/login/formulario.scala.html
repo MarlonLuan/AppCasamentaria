@@ -1,7 +1,7 @@
 @(formUsuario: Form[Usuario])
 @import helper._
 	
-<h1>Formulário de Usuário</h1>
+<h1>Login</h1>
 @helper.form(action = routes.UsuariosController.entrar()) {
 <fieldset>
 	<legend>Usuario (@formUsuario("id").valueOr("Novo"))</legend>
