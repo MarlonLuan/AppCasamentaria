@@ -1,6 +1,5 @@
 @(formUsuario: Form[Usuario])
 @import helper._
-@main("Formulário de Usuários") {
 	
 <h1>Formulário de Usuário</h1>
 @helper.form(action = routes.UsuariosController.entrar()) {
@@ -16,4 +15,4 @@
 <a class="btn" href="@routes.UsuariosController.lista()">Cancelar</a>
 <a class="btn" href="@routes.UsuariosController.novo()">
 Ainda não é cadastrado? Cadastre-se aqui</a>
-} }
+}
