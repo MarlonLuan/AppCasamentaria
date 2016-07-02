@@ -3,16 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>@title</title>
 	@head_meta()
 	@head_script()
 	@head_link()
 </head>
 
 <body>
-	@top()
-	@flash()
+	@body_top()
+	@body_navbar()
+	@body_flash()
 	@content
-	@navbar()
-	@footer()
+	@body_footer()
 </body>
 </html>
